@@ -3,6 +3,8 @@ import './App.css';
 import axios from 'axios';
 import Weather from './components/Weather';
 
+const apikey = process.env.REACT_APP_API_KEY;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getWeatherData();
+    /* this.getWeatherData(); */
+    console.log(apikey)
   }
 
   // async getWeatherData() {
@@ -27,7 +30,7 @@ class App extends React.Component {
   // }
 
   getWeatherData() {
-    axios.get('https://api.openweathermap.org/data/2.5/forecast?q=london&appid=e4447104f032368a2a14af1ccf6fd22e&units=imperial')
+    axios.get('https://api.openweathermap.org/data/2.5/forecast?q=london&appid=&units=imperial')
       .then(response => {
         console.log(response.data);
         this.setState({ weather: response.data });
